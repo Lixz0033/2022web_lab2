@@ -1,0 +1,56 @@
+<div class="container">
+    <form method="post">
+      <div>
+        <h1>Register</h1>
+      </div>
+      <div class="row">
+        <label for="username_register">username: </label>
+        <input id="username_register"
+               type="text"
+               required
+               name="username"
+               [(ngModel)]="username">
+      </div>
+      <div class="row">
+        <label for="password_register">password: </label>
+        <input id="password_register"
+               type="password"
+               required
+               name="password"
+               [(ngModel)]="password">
+      </div>
+      <div class="row">
+        <label for="confirm_register">confirm password: </label>
+        <input id="confirm_register"
+               type="password"
+               required
+               name="confirm"
+               [(ngModel)]="confirm">
+      </div>
+      <div class="row">
+        <label for="phone_register">phone: </label>
+        <input id="phone_register"
+               type="text"
+               required
+               name="phone"
+               [(ngModel)]="phone">
+      </div>
+      <div class="row">
+        <label for="email_register">email: </label>
+        <input id="email_register"
+               type="text"
+               class="form-control"
+               required
+               name="email"
+               [(ngModel)]="email">
+      </div>
+      <div class="row">
+        {{hint}}
+      </div>
+      <div class="row">
+        <button type="button" id="register_btn" (click)="register()">register</button>
+        <a [routerLink]="['/login']">go to login</a>
+      </div>
+    </form>
+</div>
+

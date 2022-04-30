@@ -1,0 +1,38 @@
+<div>
+    <div>
+        <h2>
+            Hello, {{username}}!
+        </h2>
+    </div>
+    <div>
+        <h2>
+            {{hint}}
+        </h2>
+    </div>
+    <div>
+        <button (click)="logout()">logout</button>
+    </div>
+</div>
+
+<table *ngFor="let user of user_list">
+    <tr>
+        <td *ngIf="user.username;else empty_username">
+            {{user.username}}
+        </td>
+        <ng-template #empty_username>
+            <td></td>
+        </ng-template>
+        <td *ngIf="user.phone;else empty_phone">
+            {{user.phone}}
+        </td>
+        <ng-template #empty_phone>
+            <td></td>
+        </ng-template>
+        <td *ngIf="user.email;else empty_email">
+            {{user.email}}
+        </td>
+        <ng-template #empty_email>
+            <td></td>
+        </ng-template>
+    </tr>
+</table>
