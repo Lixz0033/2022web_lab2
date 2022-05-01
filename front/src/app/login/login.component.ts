@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
             data: {
                 username: this.username,
                 password: this.password
-            }
+            },
         };
         let api = "http://47.100.91.128:10007/user/login";
         this.http.post(api,

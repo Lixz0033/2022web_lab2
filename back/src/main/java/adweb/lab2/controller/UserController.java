@@ -24,6 +24,7 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public @ResponseBody
     String register(UserRegisterRequest request) {
@@ -50,6 +51,7 @@ public class UserController {
         }
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public @ResponseBody
     String login(UserLoginRequest request) {
@@ -79,6 +81,7 @@ public class UserController {
         return msg;
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     public @ResponseBody
     Object listUser() {
