@@ -36,7 +36,10 @@ export class RegisterComponent implements OnInit {
             this.hint='The two passwords do not match'
         } else {
             const httpOptions = {
-                headers: new HttpHeaders({'Content-Type': 'application/json'}),
+                headers: new HttpHeaders({
+                    'Content-Type': 'application/json',
+                    'X-Content-Type-Options': 'nosniff'
+                }),
                 params: {
                     username: this.username,
                     password: this.password,

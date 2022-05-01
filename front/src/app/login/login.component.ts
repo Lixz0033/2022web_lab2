@@ -28,7 +28,10 @@ export class LoginComponent implements OnInit {
 
     login() {
         const httpOptions = {
-            headers: new HttpHeaders({'Content-Type': 'application/json'}),
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'X-Content-Type-Options': 'nosniff'
+            }),
             params: {
                 username: this.username,
                 password: this.password
