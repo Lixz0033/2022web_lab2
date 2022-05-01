@@ -9,8 +9,8 @@ import {Router} from '@angular/router';
     styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-    private username: string;
-    private user_list: any[] = [];
+    public username: string;
+    public user_list: any[] = [];
     public hint:string;
 
     constructor(
