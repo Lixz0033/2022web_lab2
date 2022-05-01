@@ -36,7 +36,7 @@ export class UserListComponent implements OnInit {
             headers: new HttpHeaders({'Content-Type': 'application/json'}),
             params: {}
         };
-        let api = "http://localhost:10007/user/list";
+        let api = "http://47.100.91.128:10007/user/list";
         this.http.post(api,
             {},
             httpOptions).subscribe(response => {

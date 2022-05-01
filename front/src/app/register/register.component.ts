@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
                     email: this.email
                 }
             };
-            let api = "http://localhost:10007/user/register";
+            let api = "http://47.100.91.128:10007/user/register";
             this.http.post(api,
                 {},
                 httpOptions).subscribe(response => {
