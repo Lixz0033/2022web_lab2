@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import axios from "axios";
+import * as qs from 'qs';
 
 @Component({
     selector: 'app-register',
@@ -36,35 +37,34 @@ export class RegisterComponent implements OnInit {
         if (this.password != this.confirm) {
             this.hint='The two passwords do not match'
         } else {
-            const httpOptions = {
-                headers: new HttpHeaders({
-                    'Content-Type': 'application/json',
-                    'X-Content-Type-Options': 'nosniff',
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods' :'GET, POST',
-                    'Access-Control-Allow-Credentials': "true",
-                    'Access-Control-Allow-Header' :'Content-Type,*'
-                }),
-            };
-            let data= {
+            let data= qs.stringify({
                 username: this.username,
                 password: this.password,
                 phone: this.phone,
                 email: this.email
-            }
-            let api = "http://47.100.91.128:10007/user/register";
-            axios.post(api,data)
+            })
+            let api = "http://localhost:10007/user/register";
+            axios.post(api,data,{
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-Content-Type-Options': 'nosniff',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST',
+                'Access-Control-Allow-Credentials': "true",
+                'Access-Control-Allow-Header': 'Content-Type,*'
+              }
+            })
                 .then(response => {
                     let resp = JSON.parse(JSON.stringify(response))
-                    if (resp.code == '200') {
-                        alert(resp.msg)
+                    if (resp.data.code == '200') {
+                        alert(resp.data.msg)
                         this.router
                             .navigateByUrl('/login')
                             .then(() => {
                                 location.reload()
                             });
                     } else {
-                        this.hint = resp.msg
+                        this.hint = resp.data.msg
                     }
                 })
                 .catch(() => {

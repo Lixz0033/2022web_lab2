@@ -19,13 +19,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.io.IOException;
 import java.util.List;
 
-@CrossOrigin(origins = "*")
 @Controller
-@RequestMapping("/user")
 public class UserController {
 
     @CrossOrigin(origins = "*")
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/register", method = RequestMethod.POST)
     public @ResponseBody
     String register(UserRegisterRequest request) {
         SqlSession sqlSession;
@@ -52,7 +50,7 @@ public class UserController {
     }
 
     @CrossOrigin(origins = "*")
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/login", method = RequestMethod.POST)
     public @ResponseBody
     String login(UserLoginRequest request) {
         System.out.println(request.getUsername() + " " + request.getPassword());
@@ -82,7 +80,7 @@ public class UserController {
     }
 
     @CrossOrigin(origins = "*")
-    @RequestMapping(value = "/list", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/list", method = RequestMethod.POST)
     public @ResponseBody
     Object listUser() {
         SqlSession sqlSession;
