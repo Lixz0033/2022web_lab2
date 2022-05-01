@@ -1,5 +1,4 @@
 node_modules
-/dist
 
 # macOS
 .DS_Store
@@ -10,7 +9,7 @@ ehthumbs.db
 Desktop.ini
 
 # Configuration
-*.properties
+# *.properties
 
 # local env files
 .env.local
