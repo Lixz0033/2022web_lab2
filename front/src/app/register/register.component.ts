@@ -44,16 +44,16 @@ export class RegisterComponent implements OnInit {
                     'Access-Control-Allow-Credentials': "true",
                     'Access-Control-Allow-Header' :'Content-Type,*'
                 }),
-                data: {
-                    username: this.username,
-                    password: this.password,
-                    phone: this.phone,
-                    email: this.email
-                }
             };
+            let data= {
+                username: this.username,
+                password: this.password,
+                phone: this.phone,
+                email: this.email
+            }
             let api = "http://47.100.91.128:10007/user/register";
             this.http.post(api,
-                {},
+                data,
                 httpOptions).subscribe(response => {
                 let resp = JSON.parse(JSON.stringify(response))
                 if (resp.code == '200') {

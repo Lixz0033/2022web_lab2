@@ -36,14 +36,14 @@ export class LoginComponent implements OnInit {
                 'Access-Control-Allow-Credentials': "true",
                 'Access-Control-Allow-Header' :'Content-Type,*'
             }),
-            data: {
-                username: this.username,
-                password: this.password
-            },
         };
+        let data = {
+            username: this.username,
+            password: this.password
+        }
         let api = "http://47.100.91.128:10007/user/login";
         this.http.post(api,
-            {},
+            data,
             httpOptions).subscribe(response => {
             let resp = JSON.parse(JSON.stringify(response))
             if (resp.code == '200') {

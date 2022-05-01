@@ -44,7 +44,6 @@ export class UserListComponent implements OnInit {
         };
         let api = "http://47.100.91.128:10007/user/list";
         this.http.post(api,
-            {},
             httpOptions).subscribe(response => {
             let resp = JSON.parse(JSON.stringify(response))
             if (resp.code == '200') {
