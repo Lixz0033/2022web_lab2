@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {StorageService} from "../storage.service";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from '@angular/router';
+import axios from "axios";
 
 @Component({
     selector: 'app-user-list',
@@ -43,15 +44,28 @@ export class UserListComponent implements OnInit {
             }),
         };
         let api = "http://47.100.91.128:10007/user/list";
-        this.http.post(api,
-            httpOptions).subscribe(response => {
-            let resp = JSON.parse(JSON.stringify(response))
-            if (resp.code == '200') {
-                this.user_list = resp.userList || [];
-            } else {
-                this.hint=resp.msg
-            }
-        });
+        axios.post(api)
+            .then(response => {
+                let resp = JSON.parse(JSON.stringify(response))
+                if (resp.code == '200') {
+                    this.user_list = resp.userList || [];
+                } else {
+                    this.hint = resp.msg
+                }
+            })
+            .catch(() => {
+                this.hint = 'error'
+            })
+            .finally();
+        // this.http.post(api,
+        //     httpOptions).subscribe(response => {
+        //     let resp = JSON.parse(JSON.stringify(response))
+        //     if (resp.code == '200') {
+        //         this.user_list = resp.userList || [];
+        //     } else {
+        //         this.hint=resp.msg
+        //     }
+        // });
     }
 
     logout() {

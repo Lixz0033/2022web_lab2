@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
+import axios from "axios";
 
 @Component({
     selector: 'app-register',
@@ -52,21 +53,39 @@ export class RegisterComponent implements OnInit {
                 email: this.email
             }
             let api = "http://47.100.91.128:10007/user/register";
-            this.http.post(api,
-                data,
-                httpOptions).subscribe(response => {
-                let resp = JSON.parse(JSON.stringify(response))
-                if (resp.code == '200') {
-                    alert(resp.msg)
-                    this.router
-                        .navigateByUrl('/login')
-                        .then(() => {
-                            location.reload()
-                        });
-                } else {
-                    this.hint = resp.msg
-                }
-            });
+            axios.post(api,data)
+                .then(response => {
+                    let resp = JSON.parse(JSON.stringify(response))
+                    if (resp.code == '200') {
+                        alert(resp.msg)
+                        this.router
+                            .navigateByUrl('/login')
+                            .then(() => {
+                                location.reload()
+                            });
+                    } else {
+                        this.hint = resp.msg
+                    }
+                })
+                .catch(() => {
+                    this.hint = 'error'
+                })
+                .finally();
+            // this.http.post(api,
+            //     data,
+            //     httpOptions).subscribe(response => {
+            //     let resp = JSON.parse(JSON.stringify(response))
+            //     if (resp.code == '200') {
+            //         alert(resp.msg)
+            //         this.router
+            //             .navigateByUrl('/login')
+            //             .then(() => {
+            //                 location.reload()
+            //             });
+            //     } else {
+            //         this.hint = resp.msg
+            //     }
+            // });
         }
     }
 }

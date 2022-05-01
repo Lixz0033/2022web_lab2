@@ -7,7 +7,7 @@ import { products } from '../products';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  product;
+  product: { name: string; price: number; description: string; } | undefined;
   constructor(
       private route: ActivatedRoute,
       ) {
@@ -16,6 +16,7 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
+      // @ts-ignore
       this.product = products[+params.get('productId')];
     });
   }
