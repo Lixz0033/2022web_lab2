@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
                 'Content-Type': 'application/json',
                 'X-Content-Type-Options': 'nosniff'
             }),
-            params: {
+            data: {
                 username: this.username,
                 password: this.password
             }

@@ -37,7 +37,6 @@ export class UserListComponent implements OnInit {
                 'Content-Type': 'application/json',
                 'X-Content-Type-Options': 'nosniff'
             }),
-            params: {}
         };
         let api = "http://47.100.91.128:10007/user/list";
         this.http.post(api,
