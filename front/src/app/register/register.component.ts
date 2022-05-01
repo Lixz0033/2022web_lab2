@@ -38,7 +38,11 @@ export class RegisterComponent implements OnInit {
             const httpOptions = {
                 headers: new HttpHeaders({
                     'Content-Type': 'application/json',
-                    'X-Content-Type-Options': 'nosniff'
+                    'X-Content-Type-Options': 'nosniff',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods' :'GET, POST',
+                    'Access-Control-Allow-Credentials': "true",
+                    'Access-Control-Allow-Header' :'Content-Type,*'
                 }),
                 data: {
                     username: this.username,
