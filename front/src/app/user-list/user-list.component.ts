@@ -33,7 +33,7 @@ export class UserListComponent implements OnInit {
   }
 
   list_users() {
-    let api = "http://localhost:10007/api/user/list";
+    let api = "http://localhost:80/api/user/list";
     axios.post(api, {}, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
