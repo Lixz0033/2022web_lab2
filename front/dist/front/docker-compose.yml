@@ -1,5 +1,0 @@
-services:
-  angular:
-    build: .
-    ports:
-      - 10008:80
