@@ -23,7 +23,7 @@ import java.util.List;
 public class UserController {
 
     @CrossOrigin(origins = "*")
-    @RequestMapping(value = "/user/register", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/user/register", method = RequestMethod.POST)
     public @ResponseBody
     String register(UserRegisterRequest request) {
         SqlSession sqlSession;
@@ -50,7 +50,7 @@ public class UserController {
     }
 
     @CrossOrigin(origins = "*")
-    @RequestMapping(value = "/user/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/user/login", method = RequestMethod.POST)
     public @ResponseBody
     String login(UserLoginRequest request) {
         System.out.println(request.getUsername() + " " + request.getPassword());
@@ -80,7 +80,7 @@ public class UserController {
     }
 
     @CrossOrigin(origins = "*")
-    @RequestMapping(value = "/user/list", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/user/list", method = RequestMethod.POST)
     public @ResponseBody
     Object listUser() {
         SqlSession sqlSession;
