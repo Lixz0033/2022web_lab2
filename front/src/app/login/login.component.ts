@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       password: this.password
     })
     console.log(data)
-    let api = "/api/user/login";
+    let api = "http://localhost:10007/api/user/login";
     axios.post(api, data, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
                 phone: this.phone,
                 email: this.email
             })
-            let api = "/api/user/register";
+            let api = "http://localhost:10007/api/user/register";
             axios.post(api,data,{
               headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
