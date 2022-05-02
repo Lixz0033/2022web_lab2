@@ -61,6 +61,7 @@ export class LoginComponent implements OnInit {
         }
       })
       .catch(() => {
+        console.log(this)
         this.hint = 'error'
       })
       .finally();
